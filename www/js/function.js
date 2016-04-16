@@ -1,3 +1,8 @@
+
+/*  obsolete
+
+
+
 function Enigme_header(id) {document.getElementById('header').innerHTML ='Enigme .'+id;}
 function setHeaderbar(texte) {document.getElementById("header").innerHTML =texte;}
 function setEnoncerTexte(texte) {    document.getElementById("enoncer").innerHTML =texte;}
@@ -29,4 +34,4 @@ function reponse(id) {
 }
 
 
-
+*/
