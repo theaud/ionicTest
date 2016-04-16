@@ -1,32 +1,36 @@
 
-  <ion-header-bar class="bar-calm">
-            <h1 class="title" ng-controller="header"> gggg</h1>
-        </ion-header-bar>
 
-<ion-view view-title="home">
+<ion-view view-title="home list  item item-input-inset">
     <ion-content>
 
-        <div class="list centrer" >
 
-            <h3 id="enoncer" >Enoncer de l'enigme</h3>
+                <FORM class="centrer">
+                    <h3>Egnime numero :{{NBenigme}}</h3>
 
-            <div class="item item-input-inset">
-                <FORM name="Enoncer_form" >
+                    <p>L'enoncer :{{Enonce}}</p>
+                    <h6>La reponse est :{{Reponse}}</h6>
+
+
                     <label class="item-input-wrapper">
-                            <INPUT type="text" name="saisie" placeholder="votre reponse"  onfocus="this.select()" autocomplete autofocus />
+                        <INPUT type="text" id="saisie" name="saisie" placeholder="votre reponse"  ng-click="this.select()" autocomplete="off" autofocus />
                     </label>
-                    <INPUT type="button" class="centrer" value="Valider" onClick='validation(NBenigme,"demo")' />
+                    <INPUT type="button"  value="Valider" onClick='validation(NBenigme,"demo")' />
+
+                    <p >{{Resultat}}</p>
+
+
+                    <div><a ui-sref="Jouer"><img src="./img/ionic.png" width="50" height="50"></a></div>
                 </FORM>
 
-            </div>
-            <h5 id="demo">Vous n'avez rien repondu</h5>
 
-        </div>
 
-<div><a ui-sref="Jouer"><img src="./img/ionic.png" width="50" height="50"></a></div>
-        <h5 id="reponse">ddddd</h5>
-        <h5 id="reponse2">ddddd</h5>
-        <h3 id="NBenigme">1</h3>
+
+
+
+
+
+
+
 
     </ion-content>
 </ion-view>
