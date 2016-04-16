@@ -1,10 +1,10 @@
 
 
-<ion-view view-title="home list  item item-input-inset">
+<ion-view view-title="home ">
     <ion-content>
 
 
-                <FORM class="centrer">
+                <FORM class="centrer list  item item-input-inset">
                     <h3>Egnime numero :{{NBenigme}}</h3>
 
                     <p>L'enoncer :{{Enonce}}</p>
@@ -12,9 +12,10 @@
 
 
                     <label class="item-input-wrapper">
-                        <INPUT type="text" id="saisie" name="saisie" placeholder="votre reponse"  ng-click="this.select()" autocomplete="off" autofocus />
+                        <INPUT type="text" id="saisie"  placeholder="votre reponse"  ng-click="this.select()" autocomplete="off" autofocus />
+
                     </label>
-                    <INPUT type="button"  value="Valider" onClick='validation(NBenigme,"demo")' />
+                    <INPUT type="button"  value="Valider" ng-click='validation()' />
 
                     <p >{{Resultat}}</p>
 

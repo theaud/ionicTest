@@ -32,6 +32,7 @@ angular.module('starter', ['ionic'])
         $scope.Resultat="Vous n'avez rien repondu";
         $scope.Enonce="La reponse est : Initiation de lyha";
         $scope.Reponse="Initiation de lyha";
+
     }
 
 
@@ -46,22 +47,21 @@ angular.module('starter', ['ionic'])
 
     $scope.setTexte = function() {
        switch ($scope.NBenigme)
-       {   case 2:$scope.Enonce="enoncer 2";break;
-           case 3:$scope.Enonce="enoncer 3";break;
-           case 4:$scope.Enonce="enoncer 4";break;
-           case 5:$scope.Enonce="enoncer 5";break;
-          default:$scope.Enonce="enoncer 6";break;
+       {   case 2:$scope.Enonce="1+1";break;
+           case 3:$scope.Enonce="1+1";break;
+           case 4:$scope.Enonce="1+1";break;
+           case 5:$scope.Enonce="101010";break;
+          default:$scope.Enonce="enoncer default";break;
        }
     };
 
     $scope.setReponse = function() {
         switch ($scope.NBenigme)
-        {   case 1:$scope.Reponse="Reponse ";break;
-            case 2:$scope.Reponse="Reponse ";break;
-            case 3:$scope.Reponse="Reponse ";break;
-            case 4:$scope.Reponse="Reponse ";break;
-            case 5:$scope.Reponse="Reponse ";break;
-           default:$scope.Reponse="Reponse ";break;
+        {   case 2:$scope.Reponse="2";break;
+            case 3:$scope.Reponse="11";break;
+            case 4:$scope.Reponse="3";break;
+            case 5:$scope.Reponse="42";break;
+           default:$scope.Reponse="default ";break;
         }
     };
 
@@ -77,13 +77,11 @@ angular.module('starter', ['ionic'])
     };
 
     $scope.validation=function() {
-        $scope.autre="validation";
         var current = document.getElementById('saisie').value;
 
-
         if ($scope.Reponse == current) {
-
             $scope.Resultat='Vous avez trouvé la bonne reponse';
+            document.getElementById('saisie').innerHTML ="";
             $scope.plus();
 
         }
