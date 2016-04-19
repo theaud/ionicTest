@@ -5,21 +5,22 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+      $rootScope.Users = {'header':'Header'};
+
+      $rootScope.back = function() {
+          $scope.Users.header="back";
+      };
+
   });
 })
 
@@ -30,9 +31,9 @@ angular.module('starter', ['ionic'])
     if (typeof $scope.NBenigme == 'undefined') {
         $scope.NBenigme=1;
         $scope.Resultat="Vous n'avez rien repondu";
-        $scope.Enonce="La reponse est : Initiation de lyha";
-        $scope.Reponse="Initiation de lyha";
-
+        $scope.Enonce="La reponse est : Initialisation de lyha";
+        $scope.Reponse="Initialisation de lyha";
+        $scope.Users.header="Enigme";
     }
 
 
@@ -91,22 +92,43 @@ angular.module('starter', ['ionic'])
 
  })
 
-.config(function ($stateProvider,$urlRouterProvider) {
+    .controller('home', function($scope){
+        $scope.Users.header="home";
+    })
+
+    .controller('Jouer', function($scope){
+        $scope.Users.header="Jouer";
+    })
+
+    .controller('Option', function($scope){
+        $scope.Users.header="Option";
+    })
+
+    .controller('Credit', function($scope){
+        $scope.Users.header="Credit";
+    })
+
+
+    .config(function ($stateProvider,$urlRouterProvider) {
   $stateProvider.state('home',{
     url:'/home',
-    templateUrl:'templates/home.html'
+    templateUrl:'templates/home.html',
+      controller:'home'
   })
 
   $stateProvider.state('Jouer',{
       url:'/Jouer',
-    templateUrl:'templates/Jouer.html'
+    templateUrl:'templates/Jouer.html',
+      controller:'Jouer'
       })
   
   $stateProvider.state('Option',{ url:'/Option',
-    templateUrl:'templates/Option.html' })
+    templateUrl:'templates/Option.html',
+      controller:'Option' })
   
   $stateProvider.state('Credit',{    url:'/Credit',
-    templateUrl:'templates/Credit.html'})
+    templateUrl:'templates/Credit.html',
+      controller:'Credit'})
   
   $stateProvider.state('Enigme',{    url:'/Enigme',
     templateUrl:'templates/Enigme.html',
