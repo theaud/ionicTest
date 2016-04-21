@@ -1,14 +1,9 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform,$rootScope) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
-
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
@@ -16,17 +11,19 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
       $rootScope.Users = {'header':'Header'};
+      $rootScope.Dialogue = ['TEXTE1','TEXTE2','TEXTE3','TEXTE4'];
 
-      $rootScope.back = function() {
-          $scope.Users.header="back";
-      };
 
   });
 })
 
 
+.controller('TEST', function($scope){
+    $scope.Users.header="TEST";
+})
 
-.controller('Enigme', function($scope) {
+
+    .controller('Enigme', function($scope) {
 
     if (typeof $scope.NBenigme == 'undefined') {
         $scope.NBenigme=1;
@@ -64,6 +61,11 @@ angular.module('starter', ['ionic'])
             case 5:$scope.Reponse="42";break;
            default:$scope.Reponse="default ";break;
         }
+    $scope.Dialogue = function() {
+        
+        //vers dialogue 
+    };  
+        
     };
 
 
@@ -98,6 +100,9 @@ angular.module('starter', ['ionic'])
     
     .controller('Dialogue', function($scope){
         $scope.Users.header="Dialogue";
+        $scope.retour = function() {
+            //retour au egnime
+        };
     })
 
     .controller('Jouer', function($scope){
@@ -138,8 +143,11 @@ angular.module('starter', ['ionic'])
     templateUrl:'templates/Enigme.html',
       controller:'Enigme'
   })
-    
-  
+  $stateProvider.state('TEST',{    url:'/TEST',
+   templateUrl:'templates/TEST.html',
+   controller:'TEST'
+  })
+
   
   $urlRouterProvider.otherwise('/home')
 });
