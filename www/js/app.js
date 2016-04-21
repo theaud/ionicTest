@@ -20,6 +20,11 @@ angular.module('starter', ['ionic'])
 
 .controller('TEST', function($scope){
     $scope.Users.header="TEST";
+    $scope.commentaireArticleSchema = new mongoose.Schema({
+        pseudo : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
+        contenu : String,
+        date : { type : Date, default : Date.now }
+    });
 })
 
 
@@ -61,12 +66,13 @@ angular.module('starter', ['ionic'])
             case 5:$scope.Reponse="42";break;
            default:$scope.Reponse="default ";break;
         }
-    $scope.Dialogue = function() {
-        
-        //vers dialogue
-    };  
-        
     };
+    $scope.Dialogue = function() {
+
+        //vers dialogue
+    };
+
+
 
 
     $scope.setEnoncer = function() {
@@ -76,6 +82,12 @@ angular.module('starter', ['ionic'])
 
         $scope.setTexte();
         $scope.setReponse();
+
+        $scope.commentaireArticleSchema = new mongoose.Schema({
+            pseudo : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
+            contenu : String,
+            date : { type : Date, default : Date.now }
+        });
         
     };
 
@@ -130,15 +142,15 @@ angular.module('starter', ['ionic'])
     templateUrl:'templates/Jouer.html',
       controller:'Jouer'
       });
-  
+
   $stateProvider.state('Option',{ url:'/Option',
     templateUrl:'templates/Option.html',
       controller:'Option' });
-  
+
   $stateProvider.state('Credit',{    url:'/Credit',
     templateUrl:'templates/Credit.html',
       controller:'Credit'});
-  
+
   $stateProvider.state('Enigme',{    url:'/Enigme',
     templateUrl:'templates/Enigme.html',
       controller:'Enigme'
@@ -148,6 +160,6 @@ angular.module('starter', ['ionic'])
    controller:'TEST'
   });
 
-  
+
   $urlRouterProvider.otherwise('/home')
 });
