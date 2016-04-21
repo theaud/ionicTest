@@ -95,6 +95,10 @@ angular.module('starter', ['ionic'])
     .controller('home', function($scope){
         $scope.Users.header="home";
     })
+    
+    .controller('home', function($scope){
+        $scope.Users.header="home";
+    })
 
     .controller('Jouer', function($scope){
         $scope.Users.header="Jouer";
