@@ -63,7 +63,7 @@ angular.module('starter', ['ionic'])
         }
     $scope.Dialogue = function() {
         
-        //vers dialogue 
+        //vers dialogue
     };  
         
     };
@@ -129,24 +129,24 @@ angular.module('starter', ['ionic'])
       url:'/Jouer',
     templateUrl:'templates/Jouer.html',
       controller:'Jouer'
-      })
+      });
   
   $stateProvider.state('Option',{ url:'/Option',
     templateUrl:'templates/Option.html',
-      controller:'Option' })
+      controller:'Option' });
   
   $stateProvider.state('Credit',{    url:'/Credit',
     templateUrl:'templates/Credit.html',
-      controller:'Credit'})
+      controller:'Credit'});
   
   $stateProvider.state('Enigme',{    url:'/Enigme',
     templateUrl:'templates/Enigme.html',
       controller:'Enigme'
-  })
+  });
   $stateProvider.state('TEST',{    url:'/TEST',
    templateUrl:'templates/TEST.html',
    controller:'TEST'
-  })
+  });
 
   
   $urlRouterProvider.otherwise('/home')
