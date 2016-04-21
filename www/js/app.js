@@ -96,8 +96,8 @@ angular.module('starter', ['ionic'])
         $scope.Users.header="home";
     })
     
-    .controller('home', function($scope){
-        $scope.Users.header="home";
+    .controller('Dialogue', function($scope){
+        $scope.Users.header="Dialogue";
     })
 
     .controller('Jouer', function($scope){
