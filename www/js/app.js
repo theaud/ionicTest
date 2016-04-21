@@ -11,7 +11,7 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
       $rootScope.Users = {'header':'Header'};
-      $rootScope.Dialogue = ['TEXTE1','TEXTE2','TEXTE3','TEXTE4'];
+      $rootScope.Dialogue = ['false','false','false','false','false','false','false','false','false'];
 
 
   });
