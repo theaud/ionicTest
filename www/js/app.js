@@ -11,8 +11,10 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
       $rootScope.Users = {'header':'Header'};
-      $rootScope.Dialogue = ['false','false','false','false','false','false','false','false','false'];
+      $rootScope.reponse={'gentil':'gentil','normal':'normal','mechant':'mechant'}
 
+      $rootScope.DialogueAfficherchoix =getDialogueAfficherchoix();
+      $rootScope.DialogueAfficher = getDialogueAfficher();
 
   });
 })
@@ -20,15 +22,10 @@ angular.module('starter', ['ionic'])
 
 .controller('TEST', function($scope){
     $scope.Users.header="TEST";
-    $scope.commentaireArticleSchema = new mongoose.Schema({
-        pseudo : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
-        contenu : String,
-        date : { type : Date, default : Date.now }
-    });
+
 })
 
-
-    .controller('Enigme', function($scope) {
+.controller('Enigme', function($scope) {
 
     if (typeof $scope.NBenigme == 'undefined') {
         $scope.NBenigme=1;
@@ -48,47 +45,20 @@ angular.module('starter', ['ionic'])
         $scope.setEnoncer();
     };
 
-    $scope.setTexte = function() {
-       switch ($scope.NBenigme)
-       {   case 2:$scope.Enonce="1+1";break;
-           case 3:$scope.Enonce="1+1";break;
-           case 4:$scope.Enonce="1+1";break;
-           case 5:$scope.Enonce="101010";break;
-          default:$scope.Enonce="enoncer default";break;
-       }
-    };
-
-    $scope.setReponse = function() {
-        switch ($scope.NBenigme)
-        {   case 2:$scope.Reponse="2";break;
-            case 3:$scope.Reponse="11";break;
-            case 4:$scope.Reponse="3";break;
-            case 5:$scope.Reponse="42";break;
-           default:$scope.Reponse="default ";break;
-        }
-    };
     $scope.Dialogue = function() {
 
         //vers dialogue
     };
 
-
-
-
     $scope.setEnoncer = function() {
         $scope.Enonce="blabla";
-        $scope.Reponse="bidon "+$scope.NBenigme;
+        $scope.Reponse="bidon ";
         $scope.Resultat="Vous n'avez rien repondu";
 
-        $scope.setTexte();
-        $scope.setReponse();
+        $scope.Enonce=setTexte($scope.NBenigme);
+        $scope.Reponse=setReponse($scope.NBenigme);
 
-        $scope.commentaireArticleSchema = new mongoose.Schema({
-            pseudo : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
-            contenu : String,
-            date : { type : Date, default : Date.now }
-        });
-        
+
     };
 
     $scope.validation=function() {
@@ -96,7 +66,7 @@ angular.module('starter', ['ionic'])
 
         if ($scope.Reponse == current) {
             $scope.Resultat='Vous avez trouvé la bonne reponse';
-            document.getElementById('saisie').innerHTML ="";
+            document.getElementById('saisie').value ="";
             $scope.plus();
 
         }
@@ -106,18 +76,20 @@ angular.module('starter', ['ionic'])
 
  })
 
-    .controller('home', function($scope){
+.controller('home', function($scope){
         $scope.Users.header="home";
     })
     
-    .controller('Dialogue', function($scope){
+.controller('Dialogue', function($scope){
         $scope.Users.header="Dialogue";
-        $scope.retour = function() {
-            //retour au egnime
+        $scope.affichage = function() {
+            
+            
+            
         };
     })
 
-    .controller('Jouer', function($scope){
+.controller('Jouer', function($scope){
         $scope.Users.header="Jouer";
     })
 
@@ -159,7 +131,10 @@ angular.module('starter', ['ionic'])
    templateUrl:'templates/TEST.html',
    controller:'TEST'
   });
-
+  $stateProvider.state('Dialogue',{    url:'/Dialogue',
+            templateUrl:'templates/Dialogue.html',
+            controller:'Dialogue'
+        });
 
   $urlRouterProvider.otherwise('/home')
 });

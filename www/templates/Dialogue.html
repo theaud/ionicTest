@@ -1,13 +1,14 @@
-<ion-view view-title="Dialogue">
-    <ion-content>
+<ion-view>
+    <ion-content >
 
-        <div>BBBBBBBBBBBLLLLLLLLLLLLLLLLLLLLLLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa</div>
-
-
-
-
+        <div>
+            <dl data-ng-repeat="i in [0,1,2,3,4]">
+                <dt>discution {{i}}:{{DialogueAfficherchoix[i]["enoncer"]}}:</dt>
+                <dd> {{DialogueAfficher[DialogueAfficherchoix[i]["choix"]][DialogueAfficherchoix[i]["afficher"]]}}</dd>
+            </dl>
+        </div>
+        <div><a ui-sref="Jouer"><img src="./img/ionic.png" width="50" height="50"></a></div>
 
     </ion-content>
-
 
 </ion-view>
