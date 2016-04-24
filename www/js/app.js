@@ -15,6 +15,12 @@ angular.module('starter', ['ionic'])
 
       $rootScope.DialogueAfficherchoix =getDialogueAfficherchoix();
       $rootScope.DialogueAfficher = getDialogueAfficher();
+      $rootScope.data=MongoClient.find();
+      var mongodb = require('mongodb');
+
+      var MongoClient = mongodb.MongoClient;
+      var url = 'mongodb://localhost:8100/my_database_name';
+      
 
   });
 })

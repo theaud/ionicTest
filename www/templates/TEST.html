@@ -2,14 +2,14 @@
 
 <ion-view view-title="TEST">
     <ion-content>
+        <ul ng-repeat="element in DialogueAfficher">
+            <li ng-repeat="f in element">{{f}}</li>
+            <p>------------------------------------------------------------------</p>
+        </ul>
+
         <ul>
-            <li ng-repeat="element in Dialogue">{{element}}.</li>
+            <li>.{{DialogueAfficher}}.</li>
         </ul>
         <div><a ui-sref="home"><img src="./img/ionic.png" width="50" height="50"></a></div>
-
-
-
     </ion-content>
-
-
 </ion-view>
