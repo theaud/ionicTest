@@ -105,7 +105,18 @@ angular.module('starter', ['ionic'])
         $scope.Users.header="Selection";
 
     $scope.NBenigmeSSS=1;
-    document.getElementById("Chapitre_1").innerHTML = "<li><a ui-sref='Enigme'>Egnime 1.1</a></li>";
+    $scope.Chapitre_1="yo";
+
+    $scope.miseenpage=function() {
+        $scope.Chapitre_1="";
+        for (var i=0; i<NBenigmeSSS; i++)
+        {
+            $scope.Chapitre_1+="<li>"+i+"</li>";
+            document.getElementById("Chapitre_1").innerHTML ="<li>"+i+"</li>";
+        }
+    }
+    $scope.miseenpage()
+   // document.getElementById("Chapitre_1").innerHTML = "<li>{{Chapitre_1}}</li>";
     document.getElementById("Chapitre_2").innerHTML = "tontexte";
     document.getElementById("Chapitre_3").innerHTML = "tontexte";
     document.getElementById("Chapitre_4").innerHTML = "tontexte";
