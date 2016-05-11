@@ -20,7 +20,7 @@ angular.module('starter', ['ionic'])
 
       var MongoClient = mongodb.MongoClient;
       var url = 'mongodb://localhost:8100/my_database_name';
-      
+
 
   });
 })
@@ -84,14 +84,39 @@ angular.module('starter', ['ionic'])
 
 .controller('home', function($scope){
         $scope.Users.header="home";
-    })
     
+        sfHover = function() {
+        var sfEls = document.getElementById("nav").getElementsByTagName("li");
+        for (var i=0; i<sfEls.length; i++) {
+            sfEls[i].onmouseover=function() {
+                this.className+=" sfhover";
+            }
+            sfEls[i].onmouseout=function() {
+                this.className=this.className.replace(new RegExp(" sfhover\b"), "");
+            }
+        }
+    }
+    if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+
+    })
+
+.controller('Selection', function($scope){
+        $scope.Users.header="Selection";
+
+    $scope.NBenigmeSSS=1;
+    document.getElementById("Chapitre_1").innerHTML = "<li><a ui-sref='Enigme'>Egnime 1.1</a></li>";
+    document.getElementById("Chapitre_2").innerHTML = "tontexte";
+    document.getElementById("Chapitre_3").innerHTML = "tontexte";
+    document.getElementById("Chapitre_4").innerHTML = "tontexte";
+    document.getElementById("Chapitre_5").innerHTML = "tontexte";
+    })
 .controller('Dialogue', function($scope){
         $scope.Users.header="Dialogue";
         $scope.affichage = function() {
-            
-            
-            
+
+
+
         };
     })
 
@@ -142,5 +167,9 @@ angular.module('starter', ['ionic'])
             controller:'Dialogue'
         });
 
+    $stateProvider.state('Selection',{    url:'/Selection',
+        templateUrl:'templates/Selection.html',
+        controller:'Selection'
+    });
   $urlRouterProvider.otherwise('/home')
 });
