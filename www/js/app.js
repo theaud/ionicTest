@@ -18,7 +18,15 @@ angular.module('starter', ['ionic'])
 
 
       $rootScope.EgnimeDebloquer=12;
-      $rootScope.current=10;
+      $rootScope.setEgnimeDebloquer=function (value) {$rootScope.EgnimeDebloquer=value;}
+
+      $rootScope.Current=3;
+      $rootScope.setcurrent=function (value) {
+
+        //  $rootScope.Current=value;
+          $rootScope.Current++;
+      }
+
   });
 })
 
@@ -104,6 +112,8 @@ angular.module('starter', ['ionic'])
     $scope.NBenigmeSSS=1;
     $scope.Chapitre_1="yo";
 
+    $scope.setEgnimeDebloquer(50);
+
 
     $scope.ajout=function(){
         var dialog = document.getElementById("menu");
@@ -114,8 +124,15 @@ angular.module('starter', ['ionic'])
         $scope.value=yolo;
        
     };
-   setMenu(51);
+
     
+    $scope.setcurrent2 = function(value) {
+        $rootScope.setcurrent(value);
+
+    };
+
+   setMenu($scope.EgnimeDebloquer);
+    $scope.setcurrent2(10);
   
    // document.getElementById("Chapitre_1").innerHTML = "<li>{{Chapitre_1}}</li>";
     
