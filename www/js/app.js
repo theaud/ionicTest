@@ -15,11 +15,7 @@ angular.module('starter', ['ionic'])
 
       $rootScope.DialogueAfficherchoix =getDialogueAfficherchoix();
       $rootScope.DialogueAfficher = getDialogueAfficher();
-      $rootScope.data=MongoClient.find();
-      var mongodb = require('mongodb');
 
-      var MongoClient = mongodb.MongoClient;
-      var url = 'mongodb://localhost:8100/my_database_name';
 
       $rootScope.EgnimeDebloquer=12;
       $rootScope.current=10;
@@ -109,16 +105,6 @@ angular.module('starter', ['ionic'])
     $scope.Chapitre_1="yo";
 
 
-    /*
-    $scope.miseenpage=function() {
-        $scope.Chapitre_1="";
-        for (var i=0; i<NBenigmeSSS; i++)
-        {
-            $scope.Chapitre_1+="<li>"+i+"</li>";
-            document.getElementById("Chapitre_1").innerHTML ="<li>"+i+"</li>";
-        }
-    }
-    */
     $scope.ajout=function(){
         var dialog = document.getElementById("menu");
         dialog.innerHTML += "<div ><p>dddd</p></div>";
@@ -128,7 +114,7 @@ angular.module('starter', ['ionic'])
         $scope.value=yolo;
        
     };
-   setMenu(21);
+   setMenu(51);
     
   
    // document.getElementById("Chapitre_1").innerHTML = "<li>{{Chapitre_1}}</li>";
@@ -138,24 +124,30 @@ angular.module('starter', ['ionic'])
     })
 .controller('Dialogue', function($scope){
         $scope.Users.header="Dialogue";
-        $scope.affichage = function() {
 
 
+    if (typeof $scope.ddd == 'undefined') {
+        $scope.ddd=1;
+    }
 
-        };
+            $scope.plus = function () {
+                $scope.NBenigme++;
+                $scope.setEnoncer();
+            };
+
+
+            $scope.scrollBottom = function () {
+                $ionicScrollDelegate.scrollBottom();
+            };
+
+
+ 
+        
     })
 
-.controller('Jouer', function($scope){
-        $scope.Users.header="Jouer";
-    })
-
-    .controller('Option', function($scope){
-        $scope.Users.header="Option";
-    })
-
-    .controller('Credit', function($scope){
-        $scope.Users.header="Credit";
-    })
+.controller('Jouer', function($scope){        $scope.Users.header="Jouer";    })
+.controller('Option', function($scope){        $scope.Users.header="Option";    })
+.controller('Credit', function($scope){        $scope.Users.header="Credit";    })
 
 
     .config(function ($stateProvider,$urlRouterProvider) {
