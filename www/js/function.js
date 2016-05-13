@@ -90,10 +90,10 @@ function setMenu(EgnimeDebloquer)
 for(var i=0;i<EgnimeDebloquer;i=i+5)
     { k=0;
         
-        var ligne = '<li>titre '+(1+(i/5)%5)+'<ul>';
+        var ligne = '<li><h4>Chapitre '+(1+(i/5)%5)+'</h4><ul>';
 
 
-       do{ ligne += '<li><a ui-sref="Enigme" href="#/Enigme" ng-click="set('+EgnimeDebloquer+')">Egnime ' + (1 + (parseInt(i / 5))) + '.' + (1 + k % 5) + '</a></li> ';
+       do{ ligne += '<li><h5><a class="button" ui-sref="Enigme" href="#/Enigme" ng-click="set('+EgnimeDebloquer+')">Egnime ' + (1 + (parseInt(i / 5))) + '.' + (1 + k % 5) + '</h5></a></li> ';
            k++;
        }while(k<5 && k+i<EgnimeDebloquer);
 
