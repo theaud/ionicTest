@@ -21,7 +21,8 @@ angular.module('starter', ['ionic'])
       var MongoClient = mongodb.MongoClient;
       var url = 'mongodb://localhost:8100/my_database_name';
 
-
+      $rootScope.EgnimeDebloquer=12;
+      $rootScope.current=10;
   });
 })
 
@@ -107,6 +108,8 @@ angular.module('starter', ['ionic'])
     $scope.NBenigmeSSS=1;
     $scope.Chapitre_1="yo";
 
+
+    /*
     $scope.miseenpage=function() {
         $scope.Chapitre_1="";
         for (var i=0; i<NBenigmeSSS; i++)
@@ -115,12 +118,23 @@ angular.module('starter', ['ionic'])
             document.getElementById("Chapitre_1").innerHTML ="<li>"+i+"</li>";
         }
     }
-    $scope.miseenpage()
+    */
+    $scope.ajout=function(){
+        var dialog = document.getElementById("menu");
+        dialog.innerHTML += "<div ><p>dddd</p></div>";
+        $scope.value=3;
+    }
+    $scope.set = function(yolo) {
+        $scope.value=yolo;
+       
+    };
+   setMenu(21);
+    
+  
    // document.getElementById("Chapitre_1").innerHTML = "<li>{{Chapitre_1}}</li>";
-    document.getElementById("Chapitre_2").innerHTML = "tontexte";
-    document.getElementById("Chapitre_3").innerHTML = "tontexte";
-    document.getElementById("Chapitre_4").innerHTML = "tontexte";
-    document.getElementById("Chapitre_5").innerHTML = "tontexte";
+    
+
+
     })
 .controller('Dialogue', function($scope){
         $scope.Users.header="Dialogue";
